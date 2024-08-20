@@ -5,6 +5,7 @@
 #include "Physics.h"
 #include "Input.h"
 #include "Sound.h"
+#include <glm/glm.hpp>
 
 int main(int argc, char* argv[]) {
     if (!Renderer::initSDLAndOpenGL()) {
@@ -12,7 +13,7 @@ int main(int argc, char* argv[]) {
     }
 
     Player player;
-    Enemy enemy(Vector3(2.0f, 0.0f, -5.0f));
+    Enemy enemy(glm::vec3(2.0f, 0.0f, -5.0f));
     Physics physics;
     Input input;
     Sound sound;
@@ -25,13 +26,12 @@ int main(int argc, char* argv[]) {
 
     bool running = true;
     while (running) {
-        input.handleInput(running, player);
+        input.update();
 
-        // Update game logic
-        physics.update(player, enemy);
+        player.update(input);
         enemy.update(player);
+        physics.update(player, enemy);
 
-        // Render the scene
         Renderer::clear();
         Renderer::render(player);
         Renderer::render(enemy);

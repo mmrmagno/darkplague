@@ -1,6 +1,5 @@
 CXX = g++
-CXXFLAGS = -std=c++11 -Wall
-
+CXXFLAGS = -std=c++11 -Wall -I/usr/include/SDL2
 LIBS = -lSDL2 -lSDL2_mixer -lGLEW -lGL -lGLU
 
 SRC = src/main.cpp src/Renderer.cpp src/Shader.cpp src/Player.cpp src/Enemy.cpp src/Physics.cpp src/Input.cpp src/Sound.cpp

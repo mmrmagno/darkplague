@@ -6,9 +6,18 @@
 
 class Enemy : public GameObject {
 public:
-    Enemy(Vector3 startPosition);
+    Enemy(glm::vec3 startPosition);
     void update(Player& player);
     GLuint createEnemyVAO();
+
+    GLuint getVAO() override;
+    int getVertexCount() override;
+
+private:
+    GLuint vao;
+    int vertexCount;
+
+    void attack(Player& player);  // Declare the attack function
 };
 
 #endif
