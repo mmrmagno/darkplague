@@ -5,7 +5,9 @@
 
 class Shader {
 public:
+    GLuint ID;
     static GLuint loadShader(const char* vertexPath, const char* fragmentPath);
+    void use();
 };
 
 #endif

@@ -6,7 +6,9 @@
 
 class Enemy : public GameObject {
 public:
+    Enemy(Vector3 startPosition);
     void update(Player& player);
+    GLuint createEnemyVAO();
 };
 
 #endif

@@ -7,6 +7,7 @@
 class Physics {
 public:
     void update(Player& player, Enemy& enemy);
+    bool checkCollision(GameObject& a, GameObject& b);
 };
 
 #endif

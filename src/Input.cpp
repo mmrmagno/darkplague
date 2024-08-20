@@ -9,5 +9,10 @@ void Input::handleInput(bool& running, Player& player) {
         }
     }
 
-    // Handle keyboard input for player movement
+    const Uint8* state = SDL_GetKeyboardState(NULL);
+
+    if (state[SDL_SCANCODE_W]) player.position.z -= 0.1f;
+    if (state[SDL_SCANCODE_S]) player.position.z += 0.1f;
+    if (state[SDL_SCANCODE_A]) player.position.x -= 0.1f;
+    if (state[SDL_SCANCODE_D]) player.position.x += 0.1f;
 }

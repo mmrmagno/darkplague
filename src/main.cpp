@@ -6,17 +6,22 @@
 #include "Input.h"
 #include "Sound.h"
 
-// Main game loop
 int main(int argc, char* argv[]) {
-    if (!initSDLAndOpenGL()) {
+    if (!Renderer::initSDLAndOpenGL()) {
         return -1;
     }
 
     Player player;
-    Enemy enemy;
+    Enemy enemy(Vector3(2.0f, 0.0f, -5.0f));
     Physics physics;
     Input input;
     Sound sound;
+
+    if (!sound.init()) {
+        return -1;
+    }
+
+    sound.playSound("assets/sounds/ambient.wav");
 
     bool running = true;
     while (running) {
